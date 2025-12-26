@@ -1,4 +1,6 @@
-﻿using eShop.Data.Enities;
+﻿using eShop.Data.Configurations;
+using eShop.Data.Configurations.eShopSolution.Data.Configurations;
+using eShop.Data.Enities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,25 @@ namespace eShop.Data.EF
         public EshopDBContext(DbContextOptions options) : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
+            modelBuilder.ApplyConfiguration(new CartConfig());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryTranslationConfig());
+            modelBuilder.ApplyConfiguration(new ContactConfig());
+            modelBuilder.ApplyConfiguration(new LanguageConfig());
+            modelBuilder.ApplyConfiguration(new ProductTranslationConfig());
+            modelBuilder.ApplyConfiguration(new PromotionConfig());
+            modelBuilder.ApplyConfiguration(new TransactionConfig());
 
+
+            //base.OnModelCreating(modelBuilder);
+        }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }

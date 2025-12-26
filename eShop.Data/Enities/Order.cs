@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eShop.Data.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,8 @@ namespace eShop.Data.Enities
         public string ShipEmail { set; get; }
         public string ShipPhoneNumber { set; get; }
         public OrderStatus Status { set; get; }
+
+        public List<OrderDetail> OrderDetails { set; get; }
 
     }
 }
