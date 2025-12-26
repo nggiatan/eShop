@@ -13,7 +13,7 @@ namespace eShop.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Contact> builder)
         {
-            uilder.ToTable("Contacts");
+            builder.ToTable("Contacts");
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id).UseIdentityColumn();

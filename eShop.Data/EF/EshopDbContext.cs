@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace eShop.Data.EF
 {
-    public class EshopDBContext : DbContext
+    public class EshopDbContext : DbContext
     {
-        public EshopDBContext(DbContextOptions options) : base(options)
+        public EshopDbContext(DbContextOptions options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
